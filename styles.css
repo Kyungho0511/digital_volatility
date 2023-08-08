@@ -18,6 +18,28 @@ html, body {
   margin: auto;
   min-height: 220vh;
 
+  & .overlay_black {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  & .invisible {
+    display: none;
+  }
+
   & #header__cover {
     height: 100vh;
     position: relative;
@@ -45,24 +67,6 @@ html, body {
         width: 240px;
         text-align: left;
       }
-    }
-
-    & .overlay_black {
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0.2);
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
     }
   }
 

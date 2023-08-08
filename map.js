@@ -142,7 +142,8 @@ map.on('load', function () {
         .setup({
             step: '.step',
             offset: 0.5,
-            progress: true
+            progress: true,
+            preventDefault: true,
         })
         .onStepEnter(response => {
             let chapter = config.chapters.find(chap => chap.id === response.element.id);
