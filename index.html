@@ -2,33 +2,69 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Klee Colloquim I</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Klee Colloquim I</title>
+    <link rel="icon" type="image/png" href="./images/klee-favicon.png">
+    <link rel="stylesheet" href="https://use.typekit.net/uhn7mut.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="config.js" defer></script>
-    <script type='text/javascript' src="main.js" defer></script>
+    <script src="header.js" defer></script>
+    <script type='text/javascript' src="map.js" defer></script>
 </head>
 
 <body>
     <div id='map'></div>
-    <div class="title">
-        <h1>Spontaneous City<br>Commercial Alley Gyunlidan-gil</h1>
-        <p>This map documents changes in ridership by subway station between March 6 and March 20th, as measured through turnstile usage. The data is provided by the New York City Metro Transit Authority. To contextualize station locations across the five boroughs, an additional layer (Median Household Income) has been added. This data is block group-level estimates provided by the American Community Survey of the U.S. Census Bureau.</p>
-        <hr>
-        <div id="income-legend" class="legend">
-            <h4>Median Household Income</h4>
-            <div><span style="background-color: #00a2ca"></span>$150,000 +</div>
-            <div><span style="background-color: #33b5d5"></span>$100,000 - $150,000</div>
-            <div><span style="background-color: #66c7e0"></span>$75,000 - $100,000</div>
-            <div><span style="background-color: #99daea"></span>$50,000 - $75,000</div>
-            <div><span style="background-color: #ccedf5"></span>$20,000 - $50,000</div>
-            <div><span style="background-color: #ffffff"></span>Less than $20,000</div>
+    <div id='story'>
+        <div id="header">
+            <div id="header__cover">
+                <div class="header__title__container">
+                    <h1 class="header__title">SEOUL</h1>
+                    <div class="header__counter__container">
+                        <h1 class="header__counter">2023</h1>
+                    </div>
+                </div>
+                <div class="overlay_black"></div>
+                <img src="./images/seoul/1984.jpg" alt="seoul_1984">
+                <img src="./images/seoul/1986.jpg" alt="seoul_1986">
+                <img src="./images/seoul/1988.jpg" alt="seoul_1988">
+                <img src="./images/seoul/1990.jpg" alt="seoul_1990">
+                <img src="./images/seoul/1992.jpg" alt="seoul_1992">
+                <img src="./images/seoul/1994.jpg" alt="seoul_1994">
+                <img src="./images/seoul/1996.jpg" alt="seoul_1996">
+                <img src="./images/seoul/1998.jpg" alt="seoul_1998">
+                <img src="./images/seoul/2000.jpg" alt="seoul_2000">
+                <img src="./images/seoul/2002.jpg" alt="seoul_2002">
+                <img src="./images/seoul/2004.jpg" alt="seoul_2004">
+                <img src="./images/seoul/2006.jpg" alt="seoul_2006">
+                <img src="./images/seoul/2008.jpg" alt="seoul_2008">
+                <img src="./images/seoul/2010.jpg" alt="seoul_2010">
+                <img src="./images/seoul/2012.jpg" alt="seoul_2012">
+                <img src="./images/seoul/2014.jpg" alt="seoul_2014">
+                <img src="./images/seoul/2016.jpg" alt="seoul_2016">
+                <img src="./images/seoul/2018.jpg" alt="seoul_2018">
+                <img src="./images/seoul/2020.jpg" alt="seoul_2020">
+            </div>
+            <div id="header__text">
+                <h1>Spontaneous City</h1>
+                <p>
+                    The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?
+                </p>
+            </div>
         </div>
     </div>
+    <!-- <div id="income-legend" class="legend">
+        <h4>Land Price per square meter</h4>
+        <div><span style="background-color: #00a2ca"></span>$14,000 +</div>
+        <div><span style="background-color: #33b5d5"></span>$11,000 - $14,000</div>
+        <div><span style="background-color: #66c7e0"></span>$8,000 - $11,000</div>
+        <div><span style="background-color: #99daea"></span>$5,000 - $8,000</div>
+        <div><span style="background-color: #ccedf5"></span>$2,000 - $5,000</div>
+        <div><span style="background-color: #ffffff"></span>Less than $2,000</div>
+    </div> -->
 </body>
 
 </html>
