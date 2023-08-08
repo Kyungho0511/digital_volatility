@@ -19,7 +19,6 @@ function updateCounter(delta) {
   if (currYear % 2 === 0) {
     prevImageIdx = currImageIdx;
     currImageIdx = (currYear - YEAR_START) / 2;
-    console.log(`${prevImageIdx}, ${currImageIdx}`)
     images[prevImageIdx].classList.add('invisible');
     images[currImageIdx].classList.remove('invisible');
   }
