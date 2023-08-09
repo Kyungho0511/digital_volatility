@@ -77,7 +77,12 @@ html, body {
       display: block;
       width: 700px;
       margin: auto;
-      padding: 10px;
+    }
+
+    & .scroll_continue {
+      text-align: center;
+      padding: 20px;
+      padding-bottom: 60px;
     }
   }
 
@@ -87,11 +92,15 @@ html, body {
     text-align: left;
     margin: auto;
     max-width: 700px;
-    padding: 20px;
+    padding: 30px;
+    line-height: 1.5em;
   }
 
   & h4 {
-    font-weight: 300;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1.4em;
     margin-bottom: 0.5em;
     margin-left: auto;
     margin-right: auto;
