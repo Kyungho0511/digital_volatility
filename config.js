@@ -1,26 +1,151 @@
+const legendPrice = document.querySelector('#legend_price');
+
 const config = {    
   accessToken: 'pk.eyJ1Ijoia2xlZTA1MTEiLCJhIjoiY2xrYnFibnNjMGV4cjNrbzRqdGg1d21sYiJ9.nN0pE1qocGhTLnD_xPuYdg',
   style: 'mapbox://styles/klee0511/cll1kf5on00vw01p7aiwn31m9',
   theme: 'light',
-  alignment: 'left',
-  title: 'The Geographical Distribution of Subway Usage Decrease Due to COVID-19',
-  description: '<p>This tutorial demonstrates how to use <a href="https://github.com/mapbox/storytelling">Mapbox Storytelling</a> with our previous web mapping example. Here we will use Mapbox storytelling template to first, give an overview of the decrease in subway usage around the city, and second, zoom into three different locations that exemplify the diversity of conditions around New York.</p><p>We will use the <a href="https://pointsunknown.nyc/web%20mapping/mapbox/2020/03/25/10_WebmappingTurnstileData.html">previous web map displaying MTA turnstile data</a> as the basis for our story. In this process we will use Mapbox GL JS, as well as Intersection Observer and Scrollama as our main JavaScript libraries.</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In harum natus eos cum rem iure aperiam omnis distinctio illo quis, sunt nesciunt sint impedit deleniti dolor saepe necessitatibus eligendi aut?</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In harum natus eos cum rem iure aperiam omnis distinctio illo quis, sunt nesciunt sint impedit deleniti dolor saepe necessitatibus eligendi aut?</p>',
-  footer: 'This story is based on data by the <a href="http://web.mta.info/developers/turnstile.html">Metropolitan Transit Authority</a> and reporting by the New York Times (<a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">here</a> and <a href="https://www.nytimes.com/aponline/2020/04/02/us/ap-us-virus-outbreak-hardest-hit.html">here</a>), <a href="https://ny.curbed.com/2020/3/24/21192454/coronavirus-nyc-transportation-subway-citi-bike-covid-19">Curbed</a>, and <a href="https://thecity.nyc/2020/03/subway-ridership-plunge-deepest-at-big-manhattan-stations.html">The City</a>.',
-  footerAttribution: '<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> | <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> | <a href="https://brown.columbia.edu">The Brown Institute for Media Innovation</a>',
   chapters: [
       {
-          id: 'priceData',
-          title: 'Gyeonglidan-gil, Development of the commercial alley',
-          image: 'images/Gyeonlidan_gil.jpg',
-          description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
-          location: {
-              center: [126.98957897888896, 37.54035898378337],
-              zoom: 15.5,
-              pitch: 0,
-              bearing: 0
-          },
-          onChapterEnter: [],
-          onChapterExit: []
+        id: 'low_land_price',
+        title: '2015 | low land price',
+        image: '',
+        description: `Gyeonglidan-gil is situated near the Itaewon area, which is known for its international and multicultural atmosphere. It's easily accessible and has attracted a diverse crowd due to its unique character. Since the rent fee was relatively cheap compared to Itaewon, Gyeonglidan-gil attracted many young enterpreneurs and creative individuals who opened businesses catering to modern tastes. This way, the area underwent a transformation from a more traditional neighborhood to a trendy and stylish corridor.<br><br>
+          <div id="legend_price" class="legend">
+            <h4>2015 / Land Price per m2</h4>
+            <div><span style="background-color: #ff002a"></span>$14,000 +</div>
+            <div><span style="background-color: #f86c1e"></span>$11,000 - $14,000</div>
+            <div><span style="background-color: #ed9d35"></span>$8,000 - $11,000</div>
+            <div><span style="background-color: #e3c464"></span>$5,000 - $8,000</div>
+            <div><span style="background-color: #e0e49d"></span>$2,000 - $5,000</div>
+            <div><span style="background-color: #ebffd7"></span>Less than $2,000</div>
+          </div>`,
+        location: {
+            center: [126.98257, 37.53905],
+            zoom: 14.9,
+            pitch: 0,
+            bearing: 0
+        },
+        alignment: 'left',
+        onChapterEnter: [
+          { layer: 'priceData_2016', opacity: 0.7 }
+        ],
+        onChapterExit: [
+          { layer: 'priceData_2016', opacity: 0 }
+        ],
+      },
+      {
+        id: 'street_network',
+        title: '2015 | street proximity to attractions',
+        image: '',
+        description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
+        location: {
+            center: [126.98654, 37.54055],
+            zoom: 15.6,
+            pitch: 0,
+            bearing: 0
+        },
+        alignment: 'left',
+        onChapterEnter: [
+        ],
+        onChapterExit: [
+        ]
+      },
+      {
+        id: 'social_media_rise',
+        title: '2015 | rise in social media trends',
+        image: 'images/trends00.png',
+        description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
+        location: {
+            center: [126.98654, 37.54055],
+            zoom: 15.6,
+            pitch: 0,
+            bearing: 0
+        },
+        alignment: 'left',
+        onChapterEnter: [
+        ],
+        onChapterExit: [
+        ]
+      },
+      {
+        id: 'popular_district',
+        title: '2015 | emerging food district',
+        image: 'images/Gyeonlidan_gil.jpg',
+        description: `Gyeonglidan-gil's rise as a popular food district was fueled by a combination of factors. Its strategic location in the trendy Itaewon area, known for its international atmosphere, attracted a diverse crowd seeking unique dining experiences. The influx of young entrepreneurs brought innovative concepts, leading to the opening of diverse restaurants and cafes.<br><br>
+          Data source: google places API`,
+        location: {
+            center: [126.99157, 37.53870],
+            zoom: 16.5,
+            pitch: 53.72,
+            bearing: 28
+        },
+        alignment: 'right',
+        onChapterEnter: [
+        ],
+        onChapterExit: [
+        ]
+      },
+      {
+        id: 'gentrification',
+        title: '2020 | Gentrification',
+        image: '',
+        description: `The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?<br><br>
+          <div id="legend_price" class="legend">
+            <h4>2015 / Land Price per m2</h4>
+            <div><span style="background-color: #ff002a"></span>$14,000 +</div>
+            <div><span style="background-color: #f86c1e"></span>$11,000 - $14,000</div>
+            <div><span style="background-color: #ed9d35"></span>$8,000 - $11,000</div>
+            <div><span style="background-color: #e3c464"></span>$5,000 - $8,000</div>
+            <div><span style="background-color: #e0e49d"></span>$2,000 - $5,000</div>
+            <div><span style="background-color: #ebffd7"></span>Less than $2,000</div>
+          </div>`,
+        location: {
+            center: [126.99157, 37.53870],
+            zoom: 16.5,
+            pitch: 53.72,
+            bearing: 28
+        },
+        alignment: 'right',
+        onChapterEnter: [
+          { layer: 'priceData_2020', opacity: 0.7 }
+        ],
+        onChapterExit: [
+          { layer: 'priceData_2020', opacity: 0 }
+        ]
+      },
+      {
+        id: 'social_media_fall',
+        title: '2020 | haebang-chon, new social media trends',
+        image: 'images/trends01.png',
+        description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
+        location: {
+            center: [126.987466, 37.540145],
+            zoom: 18,
+            pitch: 54.22,
+            bearing: 56
+        },
+        alignment: 'right',
+        onChapterEnter: [
+        ],
+        onChapterExit: [
+        ]
+      },
+      {
+        id: 'forecast_streets',
+        title: '2023 | forecast viability of corridors',
+        image: 'images/correlation01.png',
+        description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
+        location: {
+            center: [126.99779, 37.54048],
+            zoom: 14.3,
+            pitch: 0,
+            bearing: 0
+        },
+        alignment: 'right',
+        onChapterEnter: [
+        ],
+        onChapterExit: [
+        ]
       }
   ]
 };

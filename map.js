@@ -12,14 +12,14 @@ const alignments = {
     'right': 'righty'
 }
 
-// Main 'story' section
-const story = document.querySelector('#story');
-
 /**
- * Header
+ * Main 'story' and header/footer
  */
+const story = document.querySelector('#story');
 const header = document.querySelector('#header');
+const footer = document.querySelector('#footer');
 header.classList.add(config.theme);
+footer.classList.add(config.theme);
 
 /**
  * Features
@@ -51,6 +51,7 @@ config.chapters.forEach((record, idx) => {
     }
     // Sets the id for the vignette and adds the step css attribute
     container.setAttribute('id', record.id);
+    container.classList.add(alignments[record.alignment])
     container.classList.add('step');
     if (idx === 0) {
         container.classList.add('active');
@@ -61,24 +62,9 @@ config.chapters.forEach((record, idx) => {
     features.appendChild(container);
 });
 // Appends the features element (with the vignettes) to the story element
-story.appendChild(features);
+story.insertBefore(features, footer);
 
-/**
- * Footer
- */
-const footer = document.createElement('div');
-// This assigns all the content to the footer element
-if (config.footer) {
-    const footerText = document.createElement('p');
-    footerText.innerHTML = config.footer + '<br>' + config.footerAttribution;
-    footer.appendChild(footerText);
-}
-// If the footer element contains any content, add it to the story
-if (footer.innerText.length > 0) {
-    footer.classList.add(config.theme);
-    footer.setAttribute('id', 'footer');
-    story.appendChild(footer);
-}
+
 
 /**
  * Mapbox & Scrollama
@@ -119,7 +105,26 @@ map.on('load', function () {
     }
 
     map.addLayer({
-        'id': 'priceData',
+        'id': 'priceData_2016',
+        'type': 'fill',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/gyunglidan_gil_price.geojson'
+        },
+        'paint': {
+            'fill-color': ['step', ['get', 'Price_2016'],
+                '#ebffd7', 
+                2000, '#e0e49d',
+                5000, '#e3c464',
+                8000, '#ed9d35',
+                11000, '#f86c1e',
+                14000, '#ff002a'],
+            'fill-opacity': ['case', ['==', ['get', 'Price_2016'], null], 0, 0]
+        }
+    }, 'waterway');
+
+    map.addLayer({
+        'id': 'priceData_2020',
         'type': 'fill',
         'source': {
             'type': 'geojson',
@@ -127,15 +132,17 @@ map.on('load', function () {
         },
         'paint': {
             'fill-color': ['step', ['get', 'Price_2020'],
-                '#ffffff', 
-                2000, '#ccedf5',
-                5000, '#99daea',
-                8000, '#66c7e0',
-                11000, '#33b5d5',
-                14000, '#00a2ca'],
-            'fill-opacity': ['case', ['==', ['get', 'Price_2020'], null], 0, 0.65]
+                '#ebffd7', 
+                1000, '#e0e49d',
+                3000, '#e3c464',
+                5000, '#ed9d35',
+                7000, '#f86c1e',
+                9000, '#ff002a'],
+            'fill-opacity': ['case', ['==', ['get', 'Price_2020'], null], 0, 0]
         }
     }, 'waterway');
+
+
     
     // Setup the instance, pass callback functions
     scroller
@@ -151,11 +158,17 @@ map.on('load', function () {
             if (chapter.onChapterEnter.length > 0) {
                 chapter.onChapterEnter.forEach(setLayerOpacity);
             }
+            if (chapter.legend) {
+                chapter.legend.classList.remove('invisible');
+            }
         })
         .onStepExit(response => {
             let chapter = config.chapters.find(chap => chap.id === response.element.id);
             if (chapter.onChapterExit.length > 0) {
                 chapter.onChapterExit.forEach(setLayerOpacity);
+            }
+            if (chapter.legend) {
+                chapter.legend.classList.add('invisible');
             }
         });
 });
