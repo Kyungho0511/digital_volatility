@@ -142,6 +142,58 @@ map.on('load', function () {
         }
     }, 'waterway');
 
+    map.addLayer({
+        'id': 'distance_landmark',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/distance_to_landmarks.geojson'
+        },
+        'paint': {
+            'line-color': ['step', ['get', 'distance_landmark'],
+                '#ebffd7', 
+                1100, '#e0e49d',
+                1200, '#e3c464',
+                1300, '#ed9d35',
+                1400, '#f86c1e',
+                1500, '#ff002a'],
+            'line-width': ['step', ['get', 'distance_landmark'],
+                6, 
+                1100, 5,
+                1200, 4,
+                1300, 3,
+                1400, 2,
+                1500, 1],
+            'line-opacity': ['case', ['==', ['get', 'distance_landmark'], null], 0, 0]
+        }
+    });
+    
+    map.addLayer({
+        'id': 'reviews',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/reviews.geojson'
+        },
+        'paint': {
+            'line-color': ['step', ['get', 'reviews'],
+                '#ebffd7', 
+                20, '#e0e49d',
+                50, '#e3c464',
+                80, '#ed9d35',
+                110, '#f86c1e',
+                140, '#ff002a'],
+            'line-width': ['step', ['get', 'reviews'],
+                1, 
+                20, 2,
+                50, 3,
+                80, 4,
+                110, 5,
+                140, 6],
+            'line-opacity': ['case', ['==', ['get', 'reviews'], null], 0, 0]
+        }
+    });
+
 
     
     // Setup the instance, pass callback functions

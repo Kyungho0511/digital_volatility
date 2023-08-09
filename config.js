@@ -46,8 +46,10 @@ const config = {
         },
         alignment: 'left',
         onChapterEnter: [
+          { layer: 'distance_landmark', opacity: 0.7 }
         ],
         onChapterExit: [
+          { layer: 'distance_landmark', opacity: 0 }
         ]
       },
       {
@@ -81,8 +83,10 @@ const config = {
         },
         alignment: 'right',
         onChapterEnter: [
+          { layer: 'reviews', opacity: 0.7 }
         ],
         onChapterExit: [
+          { layer: 'reviews', opacity: 0 }
         ]
       },
       {
@@ -126,8 +130,10 @@ const config = {
         },
         alignment: 'right',
         onChapterEnter: [
+          { layer: 'reviews', opacity: 0.7 }
         ],
         onChapterExit: [
+          { layer: 'reviews', opacity: 0 }
         ]
       },
       {
