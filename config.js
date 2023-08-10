@@ -20,36 +20,38 @@ const config = {
             <div><span style="background-color: #ebffd7"></span>Less than $2,000</div>
           </div>`,
         location: {
-            center: [126.98257, 37.53905],
-            zoom: 14.9,
-            pitch: 0,
-            bearing: 0
+          center: [126.98257, 37.53905],
+          zoom: 14.9,
+          pitch: 0,
+          bearing: 0
         },
         alignment: 'left',
         onChapterEnter: [
-          { layer: 'priceData_2016', opacity: 0.7 }
+          { layer: 'priceData_2016', opacity: 0.7 },
+          { layer: 'gyeonglidan_gil', opacity: 1 },
         ],
         onChapterExit: [
-          { layer: 'priceData_2016', opacity: 0 }
+          { layer: 'priceData_2016', opacity: 0 },
+          { layer: 'gyeonglidan_gil', opacity: 0 }
         ],
       },
       {
         id: 'street_network',
-        title: '2015 | street proximity to attractions',
+        title: '2015 | proximity to attractions and subway',
         image: '',
         description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
         location: {
-            center: [126.98654, 37.54055],
-            zoom: 15.6,
-            pitch: 0,
-            bearing: 0
-        },
+          center: [126.98257, 37.53905],
+          zoom: 14.9,
+          pitch: 0,
+          bearing: 0
+      },
         alignment: 'left',
         onChapterEnter: [
-          { layer: 'distance_landmark', opacity: 0.7 }
+          { layer: 'streets_distance_attractions', opacity: 0.7 }
         ],
         onChapterExit: [
-          { layer: 'distance_landmark', opacity: 0 }
+          { layer: 'streets_distance_attractions', opacity: 0 }
         ]
       },
       {
@@ -58,15 +60,19 @@ const config = {
         image: 'images/trends00.png',
         description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
         location: {
-            center: [126.98654, 37.54055],
-            zoom: 15.6,
-            pitch: 0,
-            bearing: 0
+          center: [126.98654, 37.54055],
+          zoom: 15.6,
+          pitch: 0,
+          bearing: 0
         },
         alignment: 'left',
         onChapterEnter: [
+          { layer: 'gyeonglidan_gil', opacity: 0.5 },
+          { layer: 'places_reviews', opacity: 1 }
         ],
         onChapterExit: [
+          { layer: 'gyeonglidan_gil', opacity: 0 },
+          { layer: 'places_reviews', opacity: 0 }
         ]
       },
       {
@@ -76,17 +82,17 @@ const config = {
         description: `Gyeonglidan-gil's rise as a popular food district was fueled by a combination of factors. Its strategic location in the trendy Itaewon area, known for its international atmosphere, attracted a diverse crowd seeking unique dining experiences. The influx of young entrepreneurs brought innovative concepts, leading to the opening of diverse restaurants and cafes.<br><br>
           Data source: google places API`,
         location: {
-            center: [126.99157, 37.53870],
+            center: [126.991008, 37.537876],
             zoom: 16.5,
-            pitch: 53.72,
-            bearing: 28
+            pitch: 49.5,
+            bearing: 48.8
         },
         alignment: 'right',
         onChapterEnter: [
-          { layer: 'reviews', opacity: 0.7 }
+          { layer: 'streets_reviews_2016', opacity: 0.65 }
         ],
         onChapterExit: [
-          { layer: 'reviews', opacity: 0 }
+          { layer: 'streets_reviews_2016', opacity: 0 }
         ]
       },
       {
@@ -104,10 +110,10 @@ const config = {
             <div><span style="background-color: #ebffd7"></span>Less than $2,000</div>
           </div>`,
         location: {
-            center: [126.99157, 37.53870],
+            center: [126.991008, 37.537876],
             zoom: 16.5,
-            pitch: 53.72,
-            bearing: 28
+            pitch: 49.5,
+            bearing: 48.8
         },
         alignment: 'right',
         onChapterEnter: [
@@ -118,7 +124,7 @@ const config = {
         ]
       },
       {
-        id: 'social_media_fall',
+        id: 'haebang-chon',
         title: '2020 | haebang-chon, new social media trends',
         image: 'images/trends01.png',
         description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
@@ -130,10 +136,10 @@ const config = {
         },
         alignment: 'right',
         onChapterEnter: [
-          { layer: 'reviews', opacity: 0.7 }
+          { layer: 'streets_reviews_2020', opacity: 0.7 },
         ],
         onChapterExit: [
-          { layer: 'reviews', opacity: 0 }
+          { layer: 'streets_reviews_2020', opacity: 0 },
         ]
       },
       {
@@ -142,15 +148,17 @@ const config = {
         image: 'images/correlation01.png',
         description: 'The large part of the city has evolved organically without extensive centralized urban planning. Instead, it has been growing based on the natural actions and decisions of its inhabitants. In result, dynamic and flexible urban fabric became one of the characteristics of Seoul. villas, high density low-rise residential blocks, is the most common building type in spontaneous urban fabric and today they take up almost 40% area of Seoul. So a balanced approach combining spontaneous growth and thoughtful urban planning can lead to a more sustainable and inclusive city. Collaborating with local communities is essential to understand their needs and guide development accordingly. Then what are the driving forces?',
         location: {
-            center: [126.99779, 37.54048],
-            zoom: 14.3,
+            center: [127.00309, 37.53900],
+            zoom: 14.5,
             pitch: 0,
             bearing: 0
         },
         alignment: 'right',
         onChapterEnter: [
+          { layer: 'streets_distance_attractions', opacity: 0.7 }
         ],
         onChapterExit: [
+          { layer: 'streets_distance_attractions', opacity: 0 }
         ]
       }
   ]

@@ -105,11 +105,35 @@ map.on('load', function () {
     }
 
     map.addLayer({
+        'id': 'places_reviews',
+        'type': 'circle',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/places_reviews.geojson'
+        },
+        'paint': {
+            'circle-color': '#ff7f50',
+            'circle-stroke-color': '#4d4d4d',
+            'circle-stroke-width': 0.5,
+            'circle-radius': ['step', ['get', 'user_ratings_total'],
+                5,
+                15, 10,
+                30, 15,
+                60, 20,
+                90, 30,
+                120, 40,
+                150, 50],
+            'circle-opacity': 0,
+            'circle-stroke-opacity': 0
+        }
+    });
+
+    map.addLayer({
         'id': 'priceData_2016',
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': 'data/gyunglidan_gil_price.geojson'
+            'data': 'data/land_price.geojson'
         },
         'paint': {
             'fill-color': ['step', ['get', 'Price_2016'],
@@ -128,7 +152,7 @@ map.on('load', function () {
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': 'data/gyunglidan_gil_price.geojson'
+            'data': 'data/land_price.geojson'
         },
         'paint': {
             'fill-color': ['step', ['get', 'Price_2020'],
@@ -143,54 +167,122 @@ map.on('load', function () {
     }, 'waterway');
 
     map.addLayer({
-        'id': 'distance_landmark',
+        'id': 'attractions',
+        'type': 'fill',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/attractions.geojson'
+        },
+        'paint': {
+            'fill-color': '#eeeeee',
+            'fill-opacity': 1
+        }
+    }, 'priceData_2020');
+
+    map.addLayer({
+        'id': 'attractions_line',
         'type': 'line',
         'source': {
             'type': 'geojson',
-            'data': 'data/distance_to_landmarks.geojson'
+            'data': 'data/attractions_line.geojson'
         },
         'paint': {
-            'line-color': ['step', ['get', 'distance_landmark'],
-                '#ebffd7', 
-                1100, '#e0e49d',
-                1200, '#e3c464',
-                1300, '#ed9d35',
-                1400, '#f86c1e',
-                1500, '#ff002a'],
-            'line-width': ['step', ['get', 'distance_landmark'],
-                6, 
-                1100, 5,
-                1200, 4,
-                1300, 3,
-                1400, 2,
-                1500, 1],
-            'line-opacity': ['case', ['==', ['get', 'distance_landmark'], null], 0, 0]
+            'line-color': '#666666',
+            'line-width': 1,
+            'line-opacity': 1,
+            'line-dasharray': [2, 2]
         }
     });
-    
+
     map.addLayer({
-        'id': 'reviews',
+        'id': 'gyeonglidan_gil',
         'type': 'line',
         'source': {
             'type': 'geojson',
-            'data': 'data/reviews.geojson'
+            'data': 'data/gyeonglidan_gil.geojson'
         },
         'paint': {
-            'line-color': ['step', ['get', 'reviews'],
+            'line-color': '#666666',
+            'line-width': 2,
+            'line-opacity': 0
+        }
+    }, 'road-rail');
+
+    map.addLayer({
+        'id': 'streets_distance_attractions',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/streets_distance_attractions.geojson'
+        },
+        'paint': {
+            'line-color': ['step', ['get', 'distance_attractions'],
+                '#25b72b', 
+                2350, '#74a800',
+                2900, '#a39400',
+                3450, '#ca7900',
+                4000, '#ea5400',
+                4550, '#ff002a'],
+            'line-width': ['step', ['get', 'distance_attractions'],
+                2, 
+                2350, 1.8,
+                2900, 1.6,
+                3450, 1.4,
+                4000, 1.2,
+                4550, 1],
+            'line-opacity': ['case', ['==', ['get', 'distance_attractions'], null], 0, 0]
+        }
+    }, 'road-rail');
+    
+    map.addLayer({
+        'id': 'streets_reviews_2016',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/streets_reviews.geojson'
+        },
+        'paint': {
+            'line-color': ['step', ['get', 'street_reviews'],
                 '#ebffd7', 
                 20, '#e0e49d',
                 50, '#e3c464',
                 80, '#ed9d35',
                 110, '#f86c1e',
                 140, '#ff002a'],
-            'line-width': ['step', ['get', 'reviews'],
-                1, 
-                20, 2,
-                50, 3,
-                80, 4,
-                110, 5,
-                140, 6],
-            'line-opacity': ['case', ['==', ['get', 'reviews'], null], 0, 0]
+            'line-width': ['step', ['get', 'street_reviews'],
+                4, 
+                20, 5,
+                50, 6,
+                80, 7,
+                110, 8,
+                140, 10],
+            'line-opacity': ['case', ['==', ['get', 'street_reviews'], null], 0, 0]
+        }
+    });
+
+    map.addLayer({
+        'id': 'streets_reviews_2020',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/streets_reviews.geojson'
+        },
+        'paint': {
+            'line-color': ['step', ['get', 'street_reviews'],
+                '#e0e49d', 
+                20, '#e3c464',
+                50, '#ed9d35',
+                80, '#f86c1e',
+                110, '#f86c1e',
+                140, '#ff002a'],
+            'line-width': ['step', ['get', 'street_reviews'],
+                16, 
+                20, 17,
+                50, 18,
+                80, 19,
+                110, 20,
+                140, 21],
+            'line-opacity': ['case', ['==', ['get', 'street_reviews'], null], 0, 0]
         }
     });
 
