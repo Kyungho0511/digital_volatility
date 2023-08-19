@@ -181,8 +181,9 @@ const config = {
       {
         id: 'forecast_streets',
         title: '2023 | forecast popularity of alleyways',
-        image: 'images/correlation01.png',
-        description: `Based on the analysis of datasets from Gyeonlidan-gil, I built a model to forecast the popularity of the streets to give foremost warning signs to the stakeholders of the system. It will stop other enterpreneurs from joining the food business in the area by informing them that the food business in the alleyways is already saturated. Especially with the real-time social media trends data, the digital tool will provide changes in trends and events happening in the streets in real-time.
+        image: 'images/correlations.gif',
+        description: `Land prices and google trends have positive correlation coefficient even though the strength is somewhat loose. The proximity to subways and attractions have negative correlation coefficient and the strength is quite high, which implies that people do not start small businesses too close to subways or urban attractions. 
+        Based on the analysis of datasets from Gyeonlidan-gil, I built a model to forecast the popularity of the streets to give foremost warning signs to the stakeholders of the system. The digital tool will provide changes in trends and events happening in the streets in real-time.
           <div id="legend_price" class="legend">
             <h4>Popularity score based on proximity, land price, and social media trends</h4>
             <div><span style="background-color: #25b72b"></span>80 +</div>
