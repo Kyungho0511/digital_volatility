@@ -1,113 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://use.typekit.net/uhn7mut.css" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="config.js" defer></script>
+    <script type="text/javascript" src="map.js" defer></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description"
-  content="Student work from Colloquium 1 of the Columbia GSAPP CDP Program in 2023." />
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2023/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2023/favicon.svg" type="image/svg+xml">
-  
-  <link rel="stylesheet" href="https://use.typekit.net/uhn7mut.css">
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-  <script src="https://unpkg.com/scrollama"></script>
-  <link rel="stylesheet" href="styles.css">
-  <script src="config.js" defer></script>
-  <script type='text/javascript' src="map.js" defer></script>
-  <script src="header.js" defer></script>
+    <title>Urban Alleys Analysis</title>
+  </head>
 
-  <title>Kyungho Lee</title>
-</head>
-
-<body>
-  <div id='map'></div>
-    <div id='story'>
-        <div id="header">
-            <div id="header__cover">
-                <div class="header__title__container">
-                    <h1 class="header__title">SEOUL</h1>
-                    <div class="header__counter__container">
-                        <h1 class="header__counter">2023</h1>
-                    </div>
-                </div>
-                <div class="overlay_black"></div>
-                <img class="cover" src="./images/seoul/1984.jpg"  alt="seoul satellite view 1984">
-                <img class="cover invisible" src="./images/seoul/1986.jpg" alt="seoul satellite view 1986">
-                <img class="cover invisible" src="./images/seoul/1988.jpg" alt="seoul satellite view 1988">
-                <img class="cover invisible" src="./images/seoul/1990.jpg" alt="seoul satellite view 1990">
-                <img class="cover invisible" src="./images/seoul/1992.jpg" alt="seoul satellite view 1992">
-                <img class="cover invisible" src="./images/seoul/1994.jpg" alt="seoul satellite view 1994">
-                <img class="cover invisible" src="./images/seoul/1996.jpg" alt="seoul satellite view 1996">
-                <img class="cover invisible" src="./images/seoul/1998.jpg" alt="seoul satellite view 1998">
-                <img class="cover invisible" src="./images/seoul/2000.jpg" alt="seoul satellite view 2000">
-                <img class="cover invisible" src="./images/seoul/2002.jpg" alt="seoul satellite view 2002">
-                <img class="cover invisible" src="./images/seoul/2004.jpg" alt="seoul satellite view 2004">
-                <img class="cover invisible" src="./images/seoul/2006.jpg" alt="seoul satellite view 2006">
-                <img class="cover invisible" src="./images/seoul/2008.jpg" alt="seoul satellite view 2008">
-                <img class="cover invisible" src="./images/seoul/2010.jpg" alt="seoul satellite view 2010">
-                <img class="cover invisible" src="./images/seoul/2012.jpg" alt="seoul satellite view 2012">
-                <img class="cover invisible" src="./images/seoul/2014.jpg" alt="seoul satellite view 2014">
-                <img class="cover invisible" src="./images/seoul/2016.jpg" alt="seoul satellite view 2016">
-                <img class="cover invisible" src="./images/seoul/2018.jpg" alt="seoul satellite view 2018">
-                <img class="cover invisible" src="./images/seoul/2020.jpg" alt="seoul satellite view 2020">
-                <img class="cover invisible" src="./images/seoul/2020.jpg" alt="seoul satellite view 2020">
-            </div>
-
-            <div class="header__text">
-                <h1>The impact of viral social media trends on the urban alleyways</h1>
-                <img src="./images/spontaneous_city.png" alt="seoul spontaneous city">
-                <p>
-                  Much of Seoul has grown organically without centralized planning, resulting in a flexible urban fabric dominated by low rise, high-density residential blocks called villas. When these villas alleyways align with urban attractions, their adjacent alleys often transform into trendy hubs for young entrepreneurs, gaining popularity on Instagram. However, the viral trends in social media made its popularity very unpredictable.
-                </p>
-            </div>
-
-            <div class="header__text">
-              <h1>Gyeonglidan-gil, the rise and fall of the commercial alleyways</h1>
-              <img src="./images/villas_alley.JPG" alt="spontaneous development in villas alley">
-              <h4>Before and after the corridor gets popular in social media.</h4>
-              <p>
-                Social media, particularly Instagram, has played a pivotal role in the commercial development of Gyeonglidan-gil. 
-                Gyeonglidan-gil is the typical example that suffered from the viral trends of social media, sudden downfall in social media trends with gentrification almost led the entire alleyway out of business. 
-              </p>
-            </div>
-
-            <div class="header__text">
-                <h1>The system & the pain point</h1>
-                <img src="./images/stakeholders.png" alt="stakeholders diagram">
-                <p>
-                  The stakeholders diagram shows the new players in the system of growing mechanics of urban alleyways. Uber Eats, DoorDash, Instagram, Google maps and its users. 
-                </p><br>br
-                <img src="./images/feedback_loops2.png" alt="system diagram with feedback loops">
-                <p>
-                  there is a pain point in the reinforcing feedback loop of the viral social media. As the place gets popular exponentially, excessive people join the competition, which leads to expensive rents. The system collapses when the social media trends drop down.  
-                </p>
-            </div>
-
-            <div class="header__text">
-                <h1>Predictive Model for the popularity of alleyways</h1>
-                <p>
-                  Here I tried to solve the pain point by making a predictive model for the popularity of alleyways based on the social media trends of Gyeonglidan-gil. The model will give foremost warning signs to potential business owners when there is a significant change in the social media trends.
-                </p>
-                <p class="scroll_continue">
-                    Scroll to continue 
-                    <br>
-                    ▼
-                </p>
-            </div>
+  <body>
+    <div id="map"></div>
+    <div id="story">
+      <div id="header">
+        <div class="header__text">
+          <h1>
+            The impact of viral social media trends on the urban alleyways
+          </h1>
+          <img
+            src="./images/spontaneous_city.png"
+            alt="seoul spontaneous city"
+          />
+          <p>
+            Much of Seoul has grown organically without centralized planning,
+            resulting in a flexible urban fabric dominated by low rise,
+            high-density residential blocks called villas. When these villas
+            alleyways align with urban attractions, their adjacent alleys often
+            transform into trendy hubs for young entrepreneurs, gaining
+            popularity on Instagram. However, the viral trends in social media
+            made its popularity very unpredictable.
+          </p>
         </div>
 
-        <div id="footer">
-            <h1>Methods in the project</h1>
-            <h2>Urban Spatial Analysis</h2>
-            <h2>Social Media Trends Analysis</h2>
-            <h2>Mapping / Data Visualization</h2>
-            <h2>Web FrontEnd Development</h2>
-            <h2>Immersive Media</h2>
+        <div class="header__text">
+          <h1>
+            Gyeonglidan-gil, the rise and fall of the commercial alleyways
+          </h1>
+          <img
+            src="./images/villas_alley.JPG"
+            alt="spontaneous development in villas alley"
+          />
+          <h4>Before and after the corridor gets popular in social media.</h4>
+          <p>
+            Social media, particularly Instagram, has played a pivotal role in
+            the commercial development of Gyeonglidan-gil. Gyeonglidan-gil is
+            the typical example that suffered from the viral trends of social
+            media, sudden downfall in social media trends with gentrification
+            almost led the entire alleyway out of business.
+          </p>
         </div>
+
+        <div class="header__text">
+          <h1>Analyze the popularity of alleys</h1>
+          <img
+            src="./images/feedback_loops2.png"
+            alt="system diagram with feedback loops"
+          />
+          <p>
+            I examined the popularity of urban alleyways using various factors,
+            including social media trends in Gyeonglidan-gil, land prices, and
+            proximity to attractions and subway stations. My initial hypothesis
+            suggests that the volatility of social media trends may have a
+            negative impact on the longevity of commercial alleyways. As a
+            location gains exponential popularity on social media platforms, an
+            influx of people competes for space in the alleyways, leading to
+            gentrification. Consequently, as service prices rise due to
+            gentrification, the reputation of the area diminishes exponentially
+            on social media.
+          </p>
+          <p class="scroll_continue">
+            Scroll to continue
+            <br />
+            ▼
+          </p>
+        </div>
+      </div>
+      <div id="footer"></div>
     </div>
-</body>
-
+  </body>
 </html>
